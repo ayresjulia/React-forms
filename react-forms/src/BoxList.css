@@ -1,0 +1,8 @@
+.BoxList {
+	display: flex;
+	flex-direction: row;
+}
+
+.BoxList-form {
+	display: inline-block;
+}
