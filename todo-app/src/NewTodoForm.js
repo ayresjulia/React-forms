@@ -24,8 +24,9 @@ const NewTodoForm = ({ addTodo }) => {
 			<Row form>
 				<Col md={6}>
 					<FormGroup>
-						<Label for="todo">New Todo</Label>
+						<Label htmlFor="todo">New Todo</Label>
 						<Input
+							id="todo"
 							type="text"
 							name="todo"
 							value={formData.todo}
