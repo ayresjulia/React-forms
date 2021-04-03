@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "reactstrap";
-import NewTodoForm from "./NewTodoForm";
 
 const Todo = ({ id, todo, removeTodo }) => {
 	const remove = () => removeTodo(id);
