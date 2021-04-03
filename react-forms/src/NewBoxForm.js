@@ -26,8 +26,9 @@ const NewBoxForm = ({ addBox }) => {
 			<Row form>
 				<Col md={12}>
 					<FormGroup>
-						<Label for="color">Color</Label>
+						<Label htmlFor="color">Color</Label>
 						<Input
+							id="color"
 							type="text"
 							name="color"
 							value={formData.color}
@@ -35,8 +36,9 @@ const NewBoxForm = ({ addBox }) => {
 						/>
 					</FormGroup>
 					<FormGroup>
-						<Label for="examplePassword">Width</Label>
+						<Label htmlFor="width">Width</Label>
 						<Input
+							id="width"
 							type="text"
 							name="width"
 							value={formData.width}
@@ -44,8 +46,9 @@ const NewBoxForm = ({ addBox }) => {
 						/>
 					</FormGroup>
 					<FormGroup>
-						<Label for="height">Height</Label>
+						<Label htmlFor="height">Height</Label>
 						<Input
+							id="height"
 							type="text"
 							name="height"
 							value={formData.height}

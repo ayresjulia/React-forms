@@ -11,12 +11,36 @@ it("matches snapshot", () => {
 	expect(asFragment()).toMatchSnapshot();
 });
 
-it("should add new item", () => {
-	const { queryByText, getByLabelText } = render(<ShoppingList />);
-	const input = getByLabelText("Color");
+it("should add new box with delete button", () => {
+	const { queryByText, getByLabelText } = render(<BoxList />);
+	const colorInput = getByLabelText("Color");
+	const widthInput = getByLabelText("Width");
+	const heightInput = getByLabelText("Height");
+
 	const btn = queryByText("Add");
-	expect(queryByText("Product Name : Chocolate")).not.toBeInTheDocument();
-	fireEvent.change(input, { target: { value: "Chocolate" } });
-	fireEvent.click(btn); // submit the form
-	expect(queryByText("Product Name : Chocolate")).toBeInTheDocument();
+
+	expect(queryByText("X")).not.toBeInTheDocument();
+	fireEvent.change(colorInput, { target: { value: "red" } });
+	fireEvent.change(widthInput, { target: { value: "100" } });
+	fireEvent.change(heightInput, { target: { value: "100" } });
+	fireEvent.click(btn);
+	expect(queryByText("X")).toBeInTheDocument();
+});
+
+it("should delete a box", () => {
+	const { queryByText, getByLabelText } = render(<BoxList />);
+	const colorInput = getByLabelText("Color");
+	const widthInput = getByLabelText("Width");
+	const heightInput = getByLabelText("Height");
+
+	const btn = queryByText("Add");
+
+	expect(queryByText("X")).not.toBeInTheDocument();
+	fireEvent.change(colorInput, { target: { value: "red" } });
+	fireEvent.change(widthInput, { target: { value: "100" } });
+	fireEvent.change(heightInput, { target: { value: "100" } });
+	fireEvent.click(btn);
+	expect(queryByText("X")).toBeInTheDocument();
+	fireEvent.click(queryByText("X"));
+	expect(queryByText("X")).not.toBeInTheDocument();
 });
